@@ -1,0 +1,434 @@
+@import url("https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Mochiy+Pop+P+One&family=Outfit:wght@500&family=Poppins:ital,wght@1,500&family=The+Nautigal:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::marker {
+  color: var(--darkBlue);
+}
+
+:root {
+  --white: #fff;
+  --darkBlue: #00094b;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--white);
+}
+
+body.active{
+  --white : #F00;
+  --darkBlue : #000;
+}
+
+.themeBox{
+  position: absolute; 
+  top: 10px;
+  right: 33px;
+  width: 39px;
+  height: 39px;
+  float: right;
+  background: var(--white);
+  color: var(--darkBlue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 10px rgba(9, 148, 255, 0.25),
+    inset -2px -2px 4px rgba(9, 148, 255, 0.5);
+  z-index: 1001;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.themeBox ion-icon{
+  position: relative;
+  font-size: 1.4rem;
+  pointer-events: none;
+}
+
+.themeBox ion-icon[name="sunny"]{
+  animation: animate-sun 4s linear infinite;
+}
+
+@keyframes animate-sun{
+  0%{
+    transform: rotate(360deg);
+  }
+}
+
+.themeBox ion-icon[name="moon"]{
+  animation: animate-moon 3s linear infinite;
+}
+
+
+@keyframes animate-moon{
+  0%{
+    transform: translateY(0px) translateX(0px);
+  }
+  20%{
+    transform: translateY(2px) translateX(-1px);
+  }
+  50%{
+    transform: translateY(-2px) translateX(1px);
+  }
+  70%{
+    transform: translateY(1px) translateX(-1px);
+  }
+  100%{
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+
+.box {
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  display: flex;
+  background: var(--darkBlue);
+  z-index: 999;
+  display: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.box h1 {
+  color: var(--white);
+  padding: 20px;
+  font-family: "Mochiy Pop P One", sans-serif;
+}
+
+.box .menu {
+  position: absolute;
+  top: 40%;
+  right: 20px;
+  width: 26px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.box .menu span {
+  position: absolute;
+  width: 26px;
+  height: 4px;
+  background: var(--white);
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+.box .menu .top {
+  width: 22px;
+  left: 0;
+  transform: translateY(-9px);
+}
+
+.box .menu.active .top {
+  width: 26px;
+  transform: translateY(0px) translateX(3px) rotate(45deg);
+}
+
+.box .menu .middle {
+  transform: translateY(0px);
+}
+
+.box .menu.active .middle {
+  transform: translateX(31px);
+}
+
+.box .menu .bottom {
+  width: 19px;
+  left: 0;
+  transform: translateY(9px);
+}
+
+.box .menu.active.active .bottom {
+  width: 26px;
+  transform: translateY(0px) translateX(3px) rotate(315deg);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+  transition: 0.5s;
+}
+
+.navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: var(--darkBlue);
+  border-left: 10px solid var(--darkBlue);
+  transition: 0.5s;
+  overflow: scroll;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: 0.5s;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  padding: 20px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  font-family: "Mochiy Pop P One", sans-serif;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  pointer-events: none;
+}
+
+.navigation ul li:last-child {
+  margin-bottom: 30px;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: var(--darkBlue);
+}
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -20px;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  right: -20px;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+}
+
+.info {
+  position: relative;
+  width: calc(100% - 350px);
+  left: 330px;
+}
+
+.title {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  padding: 40px 0;
+  font-family: "Mochiy Pop P One", sans-serif;
+  font-size: 0.8rem;
+  transition: 0.5s;
+}
+
+.title:hover {
+  font-size: 0.9rem;
+}
+
+.content {
+  position: relative;
+  padding: 0 15px;
+}
+
+p {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.1rem;
+}
+
+.points {
+  position: relative;
+  padding: 20px 40px;
+  width: 100%;
+  height: 100%;
+  box-shadow: 2px 2px 10px rgba(9, 148, 255, 0.25),
+    -2px -2px 10px rgba(9, 148, 255, 0.25),
+    inset -2px -2px 4px rgba(9, 148, 255, 0.5);
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+body.active .points{
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25),
+  -2px -2px 10px rgba(0, 0, 0, 0.25),
+  inset -2px -2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.points:hover {
+  transform: scale(1.01);
+}
+
+.points ul {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.1rem;
+  padding: 5px;
+}
+
+code {
+  position: relative;
+  font-family: "Outfit", sans-serif;
+  left: -10px;
+  font-size: 1.1rem;
+  padding: 2px 40px !important;
+}
+
+.inner {
+  margin-left: 50px;
+  list-style-type: disc;
+}
+
+.refer {
+  text-decoration: none;
+  color: var(--darkBlue);
+  font-size: 1.3rem;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    display: none;
+  }
+
+  .container.active {
+    transition: 0.5s;
+    display: block;
+  }
+
+  .themeBox{
+    position: fixed;
+    top: 23px;
+    right: 66px;
+    background: var(--darkBlue);
+    box-shadow: none;
+    color: var(--white);
+  }
+
+  .themeBox.menuTheme{
+    display: none;
+  }
+
+  .box {
+    display: flex;
+    font-size: 0.8rem;
+  }
+
+  .box.active {
+    visibility: hidden;
+  }
+
+  .box.active .menu {
+    width: 32px;
+    height: 32px;
+    visibility: visible;
+    background: var(--darkBlue);
+    border-radius: 6px;
+  }
+
+  .box h1 {
+    padding-left: 28px;
+  }
+
+  .info {
+    width: 90%;
+    left: 30px;
+  }
+
+  .title {
+    font-size: 0.55rem;
+    padding-bottom: 30px;
+  }
+  .title:hover {
+    font-size: 0.555rem;
+    transform: translateX(10px);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    display: none;
+  }
+
+  .container.active {
+    transition: 0.5s;
+    display: block;
+  }
+
+  .themeBox{
+    position: fixed;
+    top: 23px;
+    right: 66px;
+    background: var(--darkBlue);
+    box-shadow: none;
+    color: var(--white);
+  }
+
+  .themeBox.menuTheme{
+    display: none;
+  }
+
+  .box {
+    display: flex;
+    font-size: 0.8rem;
+  }
+
+  .box.active {
+    visibility: hidden;
+  }
+
+  .box.active .menu {
+    width: 32px;
+    height: 32px;
+    visibility: visible;
+    background: var(--darkBlue);
+    border-radius: 6px;
+  }
+
+  .box h1 {
+    padding-left: 28px;
+  }
+
+  .info {
+    width: 90%;
+    left: 30px;
+  }
+}
